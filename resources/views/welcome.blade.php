@@ -20,20 +20,6 @@
                 <input class="form-control" type="text" name="password" id="password" value="" placeholder="Enter Password">
             </div>
         </div>
-
-
-        {{-- <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-          </div> --}}
-
-        {{-- Contoh cara mereferensikan gambar di dalam file blade dengan menggunakan pendekatan Vite --}}
-        {{-- <img class="img-thumbnail" src="{{ Vite::asset('resources/images/') }}" alt="image"> --}}
-
         <div class="col-md-2 offset-md-5 mt-4">
             <div class="d-grid gap-2">
                 <a class="btn btn-dark" href="">Login</a>
