@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BarangController extends Controller
 {
@@ -24,7 +25,13 @@ class BarangController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         return view('produks.create');
+=======
+        $pageTitle = 'Create Employee';
+
+        return view('barang.create', compact('pageTitle'));
+>>>>>>> c456507db966a0780a179efc86af783434042460
     }
 
     /**
@@ -35,6 +42,7 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $request->validate([
             'namaproduk' => 'required',
             'deskripsiproduk' => 'required',
@@ -45,7 +53,29 @@ class BarangController extends Controller
         Produk::create($request->all());
 
         return redirect()->route('produks.index')->with('success', 'Produk created successfully.');
+=======
+       
+    $messages = [
+        'required' => ':Attribute harus diisi.',
+        'numeric' => 'Isi :attribute dengan angka'
+    ];
+
+    $validator = Validator::make($request->all(), [
+        'NamaBarang' => 'required',
+        'KodeBarang' => 'required',
+        'JumlahBarang' => 'numeric',
+        'DeskripsiBarang' => 'required',
+    ], $messages);
+
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
+>>>>>>> c456507db966a0780a179efc86af783434042460
     }
+
+    return $request->all();
+}
+
+    
 
     /**
      * Display the specified resource.
