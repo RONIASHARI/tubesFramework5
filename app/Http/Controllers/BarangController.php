@@ -14,10 +14,9 @@ class BarangController extends Controller
     public function index()
     {
         // $pageTitle = 'Barang List';
-        $listbarang= produk::all();
+        $listbarang = produk::all();
 
         return view('barang.index', compact('listbarang'));
-
     }
 
     /**
@@ -25,13 +24,10 @@ class BarangController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        return view('produks.create');
-=======
-        $pageTitle = 'Create Employee';
+
+        $pageTitle = 'Create Produk';
 
         return view('barang.create', compact('pageTitle'));
->>>>>>> c456507db966a0780a179efc86af783434042460
     }
 
     /**
@@ -42,40 +38,34 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         $request->validate([
             'namaproduk' => 'required',
             'deskripsiproduk' => 'required',
             'status' => 'required',
-            'fotoproduk' => 'required',
+            'fotoproduk' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Produk::create($request->all());
+        // Process the file upload
+        if ($request->hasFile('fotoproduk')) {
+            $file = $request->file('fotoproduk');
+            $filename = $request->namaproduk . '.' . $file->getClientOriginalExtension();
+            $filePath = $file->storeAs('fotoProduk', $filename, 'public');
+        }
 
-        return redirect()->route('produks.index')->with('success', 'Produk created successfully.');
-=======
-       
-    $messages = [
-        'required' => ':Attribute harus diisi.',
-        'numeric' => 'Isi :attribute dengan angka'
-    ];
+        // Create the product
+        $product = new Produk;
+        $product->namaproduk = $request->namaproduk;
+        $product->deskripsiproduk = $request->deskripsiproduk;
+        $product->status = $request->status;
+        $product->fotoproduk = $filename ?? null; // Set the filename if uploaded, otherwise null
+        $product->save();
 
-    $validator = Validator::make($request->all(), [
-        'NamaBarang' => 'required',
-        'KodeBarang' => 'required',
-        'JumlahBarang' => 'numeric',
-        'DeskripsiBarang' => 'required',
-    ], $messages);
-
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
->>>>>>> c456507db966a0780a179efc86af783434042460
+        return redirect()->route('barangg.index')->with('success', 'Product created successfully.');
     }
 
-    return $request->all();
-}
 
-    
+
+
 
     /**
      * Display the specified resource.
@@ -110,17 +100,18 @@ class BarangController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request);
         $request->validate([
             'namaproduk' => 'required',
             'deskripsiproduk' => 'required',
             'status' => 'required',
-            'fotoproduk' => 'required',
+            // 'fotoproduk' => 'required',
         ]);
 
         $produk = Produk::findOrFail($id);
         $produk->update($request->all());
 
-        return redirect()->route('produks.index')->with('success', 'Produk updated successfully.');
+        return redirect("/barangg")->with('success', 'Produk updated successfully.');
     }
 
     /**

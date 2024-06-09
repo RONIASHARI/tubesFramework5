@@ -1,15 +1,27 @@
 @extends('layout.layout')
 
 @section('content')
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
     <div class="container mt-4">
         <div class="row mb-0">
             <div class="col-lg-9 col-xl-10">
-                <h4 class="mb-3">listbarang</h4>
+                <h4 class="mb-3">List Barang</h4>
                 @vite('resources/sass/app.scss')
             </div>
             <div class="col-lg-3 col-xl-2">
                 <div class="d-grid gap-2">
-                    <a href="{{route('barangg.create')}}" class="btn btn-primary">Create Barang</a>
+                    <a href="{{route('barangg.create')}}" class="btn btn-primary">Create Produk</a>
                 </div>
             </div>
         </div>
@@ -18,8 +30,8 @@
             <table id="datatable" class="table table-bordered table-hover table-striped mb-0 bg-white">
                 <thead>
                     <tr>
-                        <th>Nama Barang</th>
-                        <th>Kode Barang</th>
+                        <th>Nama Produk</th>
+                        <th>Deskripsi</th>
                         <th>Status</th>
                         <th>Foto Produk</th>
                         <th>Actions</th>
@@ -41,7 +53,7 @@
                                     <i class="bi-person-lines-fill"></i>
                                 </a>
                                 @include('popup.edit')
-                                <a href="#" class="btn btn-outline-dark btn-sm me-2" data-bs-toggle="modal" data-bs-target="#edit">
+                                <a href="#" class="btn btn-outline-dark btn-sm me-2" data-bs-toggle="modal" data-bs-target="#edit_{{ $produk->id }}">
                                     <i class="bi-pencil-square"></i>
                                 </a>
                                 <div>
