@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BarangController extends Controller
 {
@@ -23,7 +24,9 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Create Employee';
+
+        return view('barang.create', compact('pageTitle'));
     }
 
     /**
@@ -31,8 +34,27 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+    $messages = [
+        'required' => ':Attribute harus diisi.',
+        'numeric' => 'Isi :attribute dengan angka'
+    ];
+
+    $validator = Validator::make($request->all(), [
+        'NamaBarang' => 'required',
+        'KodeBarang' => 'required',
+        'JumlahBarang' => 'numeric',
+        'DeskripsiBarang' => 'required',
+    ], $messages);
+
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
+
+    return $request->all();
+}
+
+    
 
     /**
      * Display the specified resource.
