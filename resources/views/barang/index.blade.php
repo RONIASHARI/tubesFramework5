@@ -5,6 +5,7 @@
         <div class="row mb-0">
             <div class="col-lg-9 col-xl-10">
                 <h4 class="mb-3">{{ $pageTitle }}</h4>
+                @vite('resources/sass/app.scss')
             </div>
             <div class="col-lg-3 col-xl-2">
                 <div class="d-grid gap-2">
@@ -32,8 +33,10 @@
                         <td>20</td>
                         <td>
                             <div class="d-flex">
-                                <a href="#" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
-                                <a href="#" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
+                                <a href="#" class="btn btn-outline-dark btn-sm me-2">
+                                    <i class="bi-person-lines-fill"></i></a>
+                                <a href="#" class="btn btn-outline-dark btn-sm me-2">
+                                    <i class="bi-pencil-square"></i></a>
                                 <div>
                                     <form action="#" method="POST">
                                         @csrf
@@ -88,4 +91,5 @@
             </table>
         </div>
     </div>
+    @vite('resources/js/app.js')
 @endsection
