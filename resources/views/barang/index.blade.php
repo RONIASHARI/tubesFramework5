@@ -49,7 +49,7 @@
                         <td>
                             <div class="d-flex">
                                 @include('popup.show')
-                                <a href="#" class="btn btn-outline-dark btn-sm me-2" data-bs-toggle="modal" data-bs-target="#show">
+                                <a href="#" class="btn btn-outline-dark btn-sm me-2" data-bs-toggle="modal" data-bs-target="#show_{{$produk->id}}">
                                     <i class="bi-person-lines-fill"></i>
                                 </a>
                                 @include('popup.edit')

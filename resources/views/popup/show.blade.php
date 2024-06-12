@@ -1,7 +1,7 @@
 <!-- Button trigger modal -->
-
+@foreach ($listbarang as $produk)
 <!-- Modal -->
-<div class="modal fade" id="show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="show_{{$produk->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -47,3 +47,5 @@
     </div>
   </div>
 </div>
+@endforeach
+
