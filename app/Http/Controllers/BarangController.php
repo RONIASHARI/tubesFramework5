@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class BarangController extends Controller
 {
@@ -42,7 +44,7 @@ class BarangController extends Controller
             'namaproduk' => 'required',
             'deskripsiproduk' => 'required',
             'status' => 'required',
-            'fotoproduk' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'fotoproduk' => 'required'
         ]);
 
         // Process the file upload
@@ -123,8 +125,22 @@ class BarangController extends Controller
     public function destroy($id)
     {
         $produk = Produk::findOrFail($id);
-        $produk->delete();
+        if ($produk) {
+            // Path file relatif terhadap root dari storage disk yang digunakan
+            $filePath = 'fotoProduk/' . $produk->fotoproduk;
 
-        return redirect("/barangg")->with('success', 'Produk deleted successfully.');
+            // Hapus file terkait jika ada
+            if (Storage::disk('public')->exists($filePath)) {
+                Storage::disk('public')->delete($filePath);
+            } else {
+                return redirect("/barangg")->with('error', 'File not found.');
+            }
+
+            // Hapus data produk dari database
+            $produk->delete();
+
+            return redirect("/barangg")->with('success', 'Produk deleted successfully.');
+        }
+        return redirect("/barangg")->with('error', 'Produk delete failed.');
     }
 }

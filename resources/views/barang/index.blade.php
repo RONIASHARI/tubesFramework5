@@ -44,7 +44,7 @@
                         <td>{{ $produk->deskripsiproduk }}</td>
                         <td>{{ $produk->status }}</td>
                         <td>
-                            <img src="/images/{{ $produk->fotoproduk }}" alt="ini harusnya foto {{ $produk->fotoproduk }}" style="max-height: 100px">
+                            <img src="/storage/fotoProduk/{{ $produk->fotoproduk }}" alt="ini harusnya foto {{ $produk->fotoproduk }}" style="max-height: 100px">
                         </td>
                         <td>
                             <div class="d-flex">

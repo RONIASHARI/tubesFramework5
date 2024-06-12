@@ -97,12 +97,12 @@
                 @csrf
                 <div class="col-floating mb-3">
                     <label for="email" class="form-label">email</label>
-                    <input class="form-control" type="text" name="email" id="email" value=""
+                    <input class="form-control" type="email" name="email" id="email" value=""
                         placeholder="Enter email">
                 </div>
                 <div class="col-floating md-6 mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input class="form-control" type="text" name="password" id="password" value=""
+                    <input class="form-control" type="password" name="password" id="password" value=""
                         placeholder="Enter Password">
                 </div>
         </div>

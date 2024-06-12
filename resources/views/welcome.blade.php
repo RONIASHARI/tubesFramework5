@@ -17,7 +17,7 @@
             </div>
             <div class="col-floating md-6 mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input class="form-control" type="text" name="password" id="password" value="" placeholder="Enter Password">
+                <input class="form-control" type="password" name="password" id="password" value="" placeholder="Enter Password">
             </div>
         </div>
         <div class="col-md-2 offset-md-5 mt-4">
