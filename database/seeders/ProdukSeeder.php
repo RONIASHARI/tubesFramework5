@@ -34,7 +34,7 @@ class ProdukSeeder extends Seeder
             [
                 'namaproduk' => 'Set Meja Makan',
                 'deskripsiproduk' => 'Set meja makan elegan yang terdiri dari satu meja besar dan enam kursi. Dibuat dari kayu jati solid dengan finishing halus. Cocok untuk ruang makan besar dan memberikan kesan mewah pada rumah Anda.',
-                'status' => 'Out of Stock',
+                'status' => 'Unavailable',
                 'fotoproduk' => 'MejaMakan.jpeg',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -50,7 +50,7 @@ class ProdukSeeder extends Seeder
             [
                 'namaproduk' => 'Rak Sepatu',
                 'deskripsiproduk' => 'Rak sepatu praktis dengan kapasitas hingga 20 pasang sepatu. Terbuat dari bahan metal yang kuat dan tahan lama. Desain vertikal yang hemat tempat, ideal untuk diletakkan di dekat pintu masuk atau di dalam lemari.',
-                'status' => 'Discontinued',
+                'status' => 'Unavailable',
                 'fotoproduk' => 'RakSepatu.jpeg',
                 'created_at' => now(),
                 'updated_at' => now(),
