@@ -5,34 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Register</h1>
-    <form id="registerForm">
-        @csrf
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <div id="nameError" style="color: red"></div>
+<body style="background-color: bisque">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Register</h2>
+                        <form id="registerForm">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                                <div id="nameError" class="text-danger mt-1"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <div id="emailError" class="text-danger mt-1"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                                <div id="passwordError" class="text-danger mt-1"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password_confirmation">Confirm Password:</label>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                                <div id="passwordConfirmationError" class="text-danger mt-1"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" style="background-color: black">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <div id="emailError" style="color: red"></div>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <div id="passwordError" style="color: red"></div>
-        </div>
-        <div>
-            <label for="password_confirmation">Confirm Password:</label>
-            <input type="password" id="password_confirmation" name="password_confirmation" required>
-            <div id="passwordConfirmationError" style="color: red"></div>
-        </div>
-        <button type="submit" id="registerButton">Register</button>
-    </form>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         document.getElementById("registerForm").addEventListener("submit", async function(event) {
             event.preventDefault(); // Prevent default form submission
