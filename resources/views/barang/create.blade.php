@@ -3,21 +3,22 @@
 <div class="container-sm mt-5">
     <form action="{{ route('barangg.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @vite('resources/sass/app.scss')
         <div class="row justify-content-center">
             <div class="p-5 bg-light rounded-3 border col-xl-6">
                 <div class="mb-3 text-center">
-                    <i class="bi-person-circle fs-1"></i>
-                    <h4>Create Barang</h4>
+                    <i class="bi bi-pencil-square"></i>
+                    <h4>Input Barang</h4>
                 </div>
                 <hr>
                     @csrf
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="NamaProduk" class="form-label">Nama Produk</label>
-                            <input class="form-control @error('NamaProduk') is-invalid @enderror" type="text" name="namaproduk" id="NamaProduk" value="{{ old('NamaProduk') }}" placeholder="Masukkan Nama Produk">
-                            @error('NamaProduk')
-                            <div class="text-danger"><small>{{ $message }}</small></div>
-                            @enderror
+                        <input class="form-control @error('NamaProduk') is-invalid @enderror" type="text" name="namaproduk" id="NamaProduk" value="{{ old('NamaProduk') }}" placeholder="Masukkan Nama Produk">
+                        @error('namaproduk')
+                        <div class="text-danger"><small>{{ $message }}</small></div>
+                        @enderror
                         </div>
 
                         {{-- <div class="col-md-6 mb-3">
@@ -30,7 +31,7 @@
                     <div class="col-md-6 mb-3">
                         <label for="DeskripsiProduk" class="form-label">Deskripsi Produk</label>
                         <input class="form-control @error('DeskripsiProduk') is-invalid @enderror" type="text" name="deskripsiproduk" id="DeskripsiProduk" value="{{ old('DeskripsiProduk') }}" placeholder="Masukkan Deskripsi Produk">
-                        @error('DeskripsiProduk')
+                        @error('deskripsiproduk')
                         <div class="text-danger"><small>{{ $message }}</small></div>
                         @enderror
                     </div>
@@ -77,4 +78,5 @@
 </div>
 </form>
 </div>
+@vite('resources/js/app.js')
 @endsection

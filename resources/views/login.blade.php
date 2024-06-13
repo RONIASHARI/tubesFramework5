@@ -91,7 +91,7 @@
     <p>{{session('error')}}</p>
     @endif
     <div class="container text-center my-5">
-        <h1 class="mb-4">KA U</h1>
+        <h1 class="mb-4"><img src="images/logo.jpg" style="width: 200px"></h1>
         <div style="width: 200px; margin: 0 auto;">
             <form action="/login" method="post">
                 @csrf

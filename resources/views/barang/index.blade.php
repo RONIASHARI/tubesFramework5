@@ -21,7 +21,7 @@
             </div>
             <div class="col-lg-3 col-xl-2">
                 <div class="d-grid gap-2">
-                    <a href="{{route('barangg.create')}}" class="btn btn-primary">Create Produk</a>
+                    <a href="{{route('barangg.create')}}" class="btn btn-dark">Input Produk</a>
                 </div>
             </div>
         </div>

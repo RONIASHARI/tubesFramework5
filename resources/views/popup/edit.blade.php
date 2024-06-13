@@ -11,7 +11,7 @@
         <div class="modal-body">
           <form action="/barangg/{{$produk->id}}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('put');
+            @method('put')
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="NamaProduk" class="form-label">Nama Produk</label>
