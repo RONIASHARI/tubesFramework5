@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background-color: bisque">
+<body style="background-color: grey">
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">

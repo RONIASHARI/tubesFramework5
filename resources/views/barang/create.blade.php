@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="p-5 bg-light rounded-3 border col-xl-6">
                 <div class="mb-3 text-center">
-                    <i class="bi bi-pencil-square"></i>
+                    <i class="bi bi-pencil-square fs-1"></i>
                     <h4>Input Barang</h4>
                 </div>
                 <hr>

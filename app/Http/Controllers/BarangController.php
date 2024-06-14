@@ -78,6 +78,7 @@ class BarangController extends Controller
     public function show($id)
     {
         $produk = Produk::findOrFail($id);
+        // $pageTitle = 'Show Produk';
         return view('produks.show', compact('produk'));
     }
 
@@ -90,6 +91,7 @@ class BarangController extends Controller
     public function edit($id)
     {
         $produk = Produk::findOrFail($id);
+        // $pageTitle = 'Edit Produk';
         return view('produks.edit', compact('produk'));
     }
 
