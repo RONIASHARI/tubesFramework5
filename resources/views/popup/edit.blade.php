@@ -5,13 +5,13 @@
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Create Barang</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Barang</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form action="/barangg/{{$produk->id}}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('put');
+            @method('put')
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="NamaProduk" class="form-label">Nama Produk</label>
